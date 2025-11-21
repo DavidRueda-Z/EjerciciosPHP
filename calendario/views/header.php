@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestor de Notas</title>
+    <title>Calendario de Eventos</title>
     <style>
         body {
             font-family: Arial;
@@ -15,15 +15,22 @@
             background: white;
             padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             position: relative;
         }
-        textarea {
+        table {
             width: 100%;
-            height: 100px;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
             padding: 8px;
         }
-        input, select {
+        th {
+            background: #eee;
+        }
+        input, textarea {
             width: 100%;
             padding: 8px;
         }
@@ -35,20 +42,7 @@
             border: none;
             border-radius: 6px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 18px;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-        th {
-            background: #eee;
-        }
     </style>
 </head>
 <body>
 <div class="card">
-        

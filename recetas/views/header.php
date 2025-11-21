@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Gestor de Notas</title>
+    <title>Plataforma de Recetas</title>
     <style>
         body {
             font-family: Arial;
@@ -10,7 +10,7 @@
             padding: 30px;
         }
         .card {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             background: white;
             padding: 20px;
@@ -27,14 +27,6 @@
             width: 100%;
             padding: 8px;
         }
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            background: royalblue;
-            color: white;
-            border: none;
-            border-radius: 6px;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -47,8 +39,14 @@
         th {
             background: #eee;
         }
+        button {
+            padding: 10px 20px;
+            background: royalblue;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body>
 <div class="card">
-        
