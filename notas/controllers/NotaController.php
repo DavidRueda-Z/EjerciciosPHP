@@ -61,4 +61,43 @@ class NotaController
 
         $this->guardar($lista);
     }
+
+    public function obtenerPorId($id)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $n) {
+        if ($n->id == $id) {
+            return $n;
+        }
+    }
+    return null;
+}
+
+public function editar($id, $titulo, $contenido, $categoria)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $n) {
+        if ($n->id == $id) {
+            $n->titulo = $titulo;
+            $n->contenido = $contenido;
+            $n->categoria = $categoria;
+            // la fecha NO se modifica, es fecha de creación
+        }
+    }
+
+    $this->guardar($lista);
+}
+public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    $lista = array_filter($lista, function ($n) use ($id) {
+        return $n->id != $id;
+    });
+
+    $this->guardar($lista);
+}
+
 }

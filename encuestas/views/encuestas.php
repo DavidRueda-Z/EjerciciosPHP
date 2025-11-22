@@ -3,7 +3,6 @@
 
 <h2>Plataforma de Encuestas</h2>
 
-<!-- FORMULARIO CREAR ENCUESTA -->
 <form method="POST">
     <label>Título de la encuesta</label>
     <input type="text" name="titulo" required>
@@ -23,7 +22,6 @@
         
         <h3><?= htmlspecialchars($e->titulo) ?></h3>
 
-        <!-- FORMULARIO DE VOTACIÓN -->
         <form method="GET">
             <input type="hidden" name="votar" value="<?= $e->id ?>">
 
@@ -37,17 +35,26 @@
             <button type="submit">Votar</button>
         </form>
 
-        <!-- RESULTADOS -->
+        
         <h4>Resultados:</h4>
         <?php
             $total = array_sum($e->votos);
-            if ($total == 0) $total = 1; // evitar /0
+            if ($total == 0) $total = 1; 
         ?>
 
         <?php foreach ($e->opciones as $i => $op): ?>
             <p><?= htmlspecialchars($op) ?> — <?= $e->votos[$i] ?> votos</p>
             <div class="resultado-bar" style="width: <?= ($e->votos[$i] / $total) * 100 ?>%;"></div>
         <?php endforeach; ?>
+
+        <div style="margin-bottom: 10px;">
+            <a href="index.php?eliminar=<?= $e->id ?>"
+            onclick="return confirm('¿Seguro que deseas eliminar esta encuesta?');"
+            style="color:red; font-weight:bold; font-size: 0.9rem;">
+            <br>Eliminar encuesta<br>
+            </a>
+        </div>
+
 
     </div>
 <?php endforeach; ?>

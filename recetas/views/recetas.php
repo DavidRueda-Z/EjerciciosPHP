@@ -39,11 +39,23 @@
 
     <?php foreach ($recetas as $r): ?>
         <tr>
-            <td><?= htmlspecialchars($r->titulo) ?></td>
-            <td><?= $r->categoria ?></td>
-            <td><?= nl2br(htmlspecialchars($r->ingredientes)) ?></td>
-            <td><?= nl2br(htmlspecialchars($r->preparacion)) ?></td>
-        </tr>
+    <td><?= htmlspecialchars($r->titulo) ?></td>
+    <td><?= $r->categoria ?></td>
+    <td><?= nl2br(htmlspecialchars($r->ingredientes)) ?></td>
+    <td><?= nl2br(htmlspecialchars($r->preparacion)) ?></td>
+
+    <td>
+        <a href="index.php?editar=<?= $r->id ?>" style="color: orange; font-weight:bold;">
+            Editar
+        </a> |
+        <a href="index.php?eliminar=<?= $r->id ?>"
+           style="color:red; font-weight:bold;"
+           onclick="return confirm('¿Seguro que deseas eliminar esta receta?');">
+           Eliminar
+        </a>
+    </td>
+</tr>
+
     <?php endforeach; ?>
 </table>
 

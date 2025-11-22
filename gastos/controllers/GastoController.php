@@ -60,4 +60,47 @@ class GastoController
 
         $this->guardar($lista);
     }
+
+    public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    // Filtrar el gasto a eliminar
+    $lista = array_filter($lista, function ($g) use ($id) {
+        return $g->id != $id;
+    });
+
+    // Guardar cambios
+    $this->guardar($lista);
+}
+
+public function obtenerPorId($id)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $g) {
+        if ($g->id == $id) {
+            return $g;
+        }
+    }
+    return null;
+}
+
+public function editar($id, $descripcion, $monto, $categoria, $fecha)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $g) {
+        if ($g->id == $id) {
+            $g->descripcion = $descripcion;
+            $g->monto = $monto;
+            $g->categoria = $categoria;
+            $g->fecha = $fecha;
+        }
+    }
+
+    $this->guardar($lista);
+}
+
+
 }

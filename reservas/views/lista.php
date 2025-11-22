@@ -38,11 +38,24 @@
 
     <?php foreach ($reservas as $r): ?>
         <tr>
-            <td><?= htmlspecialchars($r->nombre) ?></td>
-            <td><?= $r->servicio ?></td>
-            <td><?= $r->fecha ?></td>
-            <td><?= $r->hora ?></td>
-        </tr>
+    <td><?= htmlspecialchars($r->nombre) ?></td>
+    <td><?= $r->servicio ?></td>
+    <td><?= $r->fecha ?></td>
+    <td><?= $r->hora ?></td>
+
+    <td>
+        <a href="index.php?editar=<?= $r->id ?>" style="color: orange; font-weight:bold;">
+            Editar
+        </a>
+        |
+        <a href="index.php?eliminar=<?= $r->id ?>"
+           onclick="return confirm('¿Seguro que deseas eliminar esta reserva?');"
+           style="color:red; font-weight:bold;">
+           Eliminar
+        </a>
+    </td>
+</tr>
+
     <?php endforeach; ?>
 </table>
 

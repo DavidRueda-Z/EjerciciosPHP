@@ -73,4 +73,16 @@ class EncuestaController
 
         $this->guardar($lista);
     }
+
+    public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    $lista = array_filter($lista, function ($e) use ($id) {
+        return $e->id != $id;
+    });
+
+    $this->guardar($lista);
+}
+
 }

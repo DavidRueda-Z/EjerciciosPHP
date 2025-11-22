@@ -1,11 +1,13 @@
 [
     {
-        "id": 1763700095,
-        "titulo": "Trabajo php",
+        "id": 1763826802,
+        "titulo": "Trabajo temprano",
         "opciones": [
-            "Si"
+            "Si",
+            "No"
         ],
         "votos": [
+            4,
             1
         ]
     }

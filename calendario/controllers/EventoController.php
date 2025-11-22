@@ -57,4 +57,42 @@ class EventoController
 
         $this->guardar($lista);
     }
+    public function obtenerPorId($id)
+    {
+    $lista = $this->cargar();
+
+    foreach ($lista as $e) {
+        if ($e->id == $id) {
+            return $e;
+        }
+    }
+    return null;
+    }
+
+    public function editar($id, $titulo, $descripcion, $fecha)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $e) {
+        if ($e->id == $id) {
+            $e->titulo = $titulo;
+            $e->descripcion = $descripcion;
+            $e->fecha = $fecha;
+        }
+    }
+
+    $this->guardar($lista);
+}
+public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    $lista = array_filter($lista, function ($e) use ($id) {
+        return $e->id != $id;
+    });
+
+    $this->guardar($lista);
+}
+
+
 }

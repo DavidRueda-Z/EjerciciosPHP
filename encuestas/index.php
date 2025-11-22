@@ -16,6 +16,11 @@ if (isset($_GET['votar']) && isset($_GET['opcion'])) {
     exit;
 }
 
+if (isset($_GET['eliminar'])) {
+    $controller->eliminar($_GET['eliminar']);
+    header("Location: index.php");
+    exit;
+}
 $encuestas = $controller->listar();
 
 require __DIR__ . '/views/encuestas.php';

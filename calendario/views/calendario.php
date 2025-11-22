@@ -25,14 +25,28 @@
         <th>Título</th>
         <th>Descripción</th>
         <th>Fecha</th>
+        <th>Acciones</th>
+
     </tr>
 
     <?php foreach ($eventos as $e): ?>
         <tr>
-            <td><?= htmlspecialchars($e->titulo) ?></td>
-            <td><?= nl2br(htmlspecialchars($e->descripcion)) ?></td>
-            <td><?= $e->fecha ?></td>
-        </tr>
+    <td><?= htmlspecialchars($e->titulo) ?></td>
+    <td><?= nl2br(htmlspecialchars($e->descripcion)) ?></td>
+    <td><?= $e->fecha ?></td>
+
+    <td>
+        <a href="index.php?editar=<?= $e->id ?>" 
+           style="color: orange; font-weight:bold;">
+           Editar
+        </a> |
+        <a href="index.php?eliminar=<?= $e->id ?>"
+           onclick="return confirm('¿Seguro que deseas eliminar este evento?');"
+           style="color:red; font-weight:bold;">
+           Eliminar
+        </a>
+    </td>
+</tr>
     <?php endforeach; ?>
 </table>
 

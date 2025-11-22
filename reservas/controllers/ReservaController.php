@@ -68,4 +68,45 @@ class ReservaController
 
         return "Reserva creada correctamente.";
     }
+
+    public function obtenerPorId($id)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $r) {
+        if ($r->id == $id) {
+            return $r;
+        }
+    }
+    return null;
+}
+
+public function editar($id, $nombre, $servicio, $fecha, $hora)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $r) {
+        if ($r->id == $id) {
+            $r->nombre = $nombre;
+            $r->servicio = $servicio;
+            $r->fecha = $fecha;
+            $r->hora = $hora;
+        }
+    }
+
+    $this->guardar($lista);
+}
+
+public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    $lista = array_filter($lista, function ($r) use ($id) {
+        return $r->id != $id;
+    });
+
+    $this->guardar($lista);
+}
+
+
 }

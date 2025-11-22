@@ -32,15 +32,30 @@
         <th>Categoría</th>
         <th>Fecha</th>
         <th>Contenido</th>
+        <th>Acciones</th>
+
     </tr>
 
     <?php foreach ($notas as $n): ?>
         <tr>
-            <td><?= htmlspecialchars($n->titulo) ?></td>
-            <td><?= $n->categoria ?></td>
-            <td><?= $n->fecha ?></td>
-            <td><?= nl2br(htmlspecialchars($n->contenido)) ?></td>
-        </tr>
+    <td><?= htmlspecialchars($n->titulo) ?></td>
+    <td><?= $n->categoria ?></td>
+    <td><?= $n->fecha ?></td>
+    <td><?= nl2br(htmlspecialchars($n->contenido)) ?></td>
+
+    <td>
+        <a href="index.php?editar=<?= $n->id ?>" style="color: orange; font-weight:bold;">
+            Editar
+        </a>
+        |
+        <a href="index.php?eliminar=<?= $n->id ?>"
+           onclick="return confirm('¿Seguro que deseas eliminar esta nota?');"
+           style="color:red; font-weight:bold;">
+           Eliminar
+        </a>
+    </td>
+</tr>
+
     <?php endforeach; ?>
 </table>
 

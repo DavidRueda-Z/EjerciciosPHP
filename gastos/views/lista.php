@@ -35,6 +35,8 @@
         <th>Monto</th>
         <th>Categoría</th>
         <th>Fecha</th>
+        <th>Acciones</th>
+
     </tr>
 
     <?php 
@@ -43,11 +45,21 @@
             $total += $g->monto;
     ?>
         <tr>
-            <td><?= htmlspecialchars($g->descripcion) ?></td>
-            <td>$<?= number_format($g->monto, 2) ?></td>
-            <td><?= $g->categoria ?></td>
-            <td><?= $g->fecha ?></td>
-        </tr>
+    <td><?= htmlspecialchars($g->descripcion) ?></td>
+    <td>$<?= number_format($g->monto, 2) ?></td>
+    <td><?= $g->categoria ?></td>
+    <td><?= $g->fecha ?></td>
+    <td>
+        <a href="index.php?editar=<?= $g->id ?>" style="color: orange; font-weight:bold;">Editar</a>
+        |
+        <a href="index.php?eliminar=<?= $g->id ?>" style="color:red; font-weight:bold;"
+           onclick="return confirm('¿Seguro que deseas eliminar este gasto?');">
+           Eliminar
+        </a>
+    </td>
+</tr>
+
+
     <?php endforeach; ?>
 </table>
 

@@ -60,4 +60,45 @@ class RecetaController
 
         $this->guardar($lista);
     }
+
+    public function obtenerPorId($id)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $r) {
+        if ($r->id == $id) {
+            return $r;
+        }
+    }
+
+    return null;
+}
+public function editar($id, $titulo, $categoria, $ingredientes, $preparacion)
+{
+    $lista = $this->cargar();
+
+    foreach ($lista as $r) {
+        if ($r->id == $id) {
+            $r->titulo = $titulo;
+            $r->categoria = $categoria;
+            $r->ingredientes = $ingredientes;
+            $r->preparacion = $preparacion;
+        }
+    }
+
+    $this->guardar($lista);
+}
+
+public function eliminar($id)
+{
+    $lista = $this->cargar();
+
+    $lista = array_filter($lista, function($r) use ($id) {
+        return $r->id != $id;
+    });
+
+    $this->guardar($lista);
+}
+
+
 }

@@ -1,7 +1,7 @@
 # Ejercicios PHP 
 
 ### Contenido:
-1. Lista de tareas (MVC)
+1. Lista de tareas
 2. Calculadora de propinas
 3. Generador de contraseñas
 4. Gestor de gastos
