@@ -13,6 +13,6 @@
 10. Encuestas online
 11. Cronómetro online
 
-Integrantes -- **David Rueda Zuleta** ✨
+Integrantes -- **David Rueda Zuleta** 
 
 **php -S localhost:8000**
